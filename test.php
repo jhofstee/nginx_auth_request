@@ -8,11 +8,13 @@ if ($_GET["user"] == "remoteconsole") {
 		header("HTTP/1.1 200 OK");
 		exit();
 	} else {
+		session_destroy();
 		header("HTTP/1.1 401 Authentication required");
 		exit();
 	}
 }
 
+session_destroy();
 header("HTTP/1.1 400 Bad Request");
 
 ?>

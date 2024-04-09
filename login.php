@@ -21,6 +21,7 @@ if (isset($_POST['password'])) {
 		header("Location: /");
 		exit();
 	} else {
+		session_destroy();
 		$wrong_passwd = true;
 	}
 }
