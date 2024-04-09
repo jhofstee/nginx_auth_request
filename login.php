@@ -5,12 +5,6 @@ venus_session_start();
 
 $wrong_passwd = false;
 
-if (!file_exists("/data/conf/vncpassword.txt")) {
-	header("HTTP/1.1 303 Set password");
-	header("Location: /auth/setpassword.php");
-	exit();
-}
-
 if (isset($_POST['password'])) {
 	$hash = @file_get_contents("/data/conf/vncpassword.txt");
 	if ($hash == "" || password_verify($_POST['password'], $hash)) {
