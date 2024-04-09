@@ -1,6 +1,7 @@
 <?php
 
-session_start();
+require('session.php');
+venus_session_start();
 
 if ($_GET["user"] == "remoteconsole") {
 	if (isset($_SESSION["remoteconsole-authenticated"])) {

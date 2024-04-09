@@ -1,6 +1,7 @@
 <?php
 
-session_start();
+require('session.php');
+venus_session_start();
 
 $wrong_passwd = false;
 
