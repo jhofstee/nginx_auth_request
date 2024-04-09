@@ -10,9 +10,9 @@ if (isset($_POST['password'])) {
 	if ($hash == "" || password_verify($_POST['password'], $hash)) {
 		$_SESSION["remoteconsole-authenticated"] = true;
 		
-		// url?
+		$page = isset($_GET["page"]) ? $_GET["page"] : "/";
 		header("HTTP/1.1 303 Logged in");
-		header("Location: /");
+		header("Location: " . $page);
 		exit();
 	} else {
 		session_destroy();
