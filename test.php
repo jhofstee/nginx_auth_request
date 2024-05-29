@@ -1,5 +1,12 @@
 <?php
 
+// Check if authentication is required.
+$hash = trim(@file_get_contents("/data/conf/vncpassword.txt"));
+if ($hash == "") {
+	header("HTTP/1.1 200 OK");
+	exit();
+}
+
 require('session.php');
 venus_session_start();
 

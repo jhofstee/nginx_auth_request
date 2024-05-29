@@ -1,17 +1,26 @@
 <?php
 
+$page = isset($_GET["page"]) ? $_GET["page"] : "/";
+
+// TODO: add error checking, handle non existent file?
+$hash = trim(@file_get_contents("/data/conf/vncpassword.txt"));
+
+if ($hash == "") {
+	header("HTTP/1.1 303 Logged in");
+	header("Location: " . $page);
+	exit();
+}
+
 require('session.php');
 venus_session_start();
 
 $wrong_passwd = false;
 
 if (isset($_POST['password'])) {
-	// TODO: add error checking
-	$hash = trim(@file_get_contents("/data/conf/vncpassword.txt"));
+
 	if ($hash == "" || password_verify($_POST['password'], $hash)) {
 		$_SESSION["remoteconsole-authenticated"] = true;
 
-		$page = isset($_GET["page"]) ? $_GET["page"] : "/";
 		header("HTTP/1.1 303 Logged in");
 		header("Location: " . $page);
 		exit();
