@@ -37,16 +37,20 @@ if (isset($_POST['password'])) {
 	<head>
 		<meta charset="utf-8">
 		<title>Login</title>
+		<link rel="stylesheet" href="styles.css">
 	</head>
-	<body>
-	    <? if ($wrong_passwd) print("Incorrect password"); ?>
-		<div class="login">
-			<h1>Login</h1>
-			<form method="post">
-				<input type="text" value="remoteconsole" name="username" id="username" autocomplete="username" style="display:none;">
-				<input type="password" name="password" id="password" autocomplete="new-password" required>
-				<input type="submit" value="Login">
-			</form>
+	<div class="outer_container">
+		<img src="victron_logo.png" alt="Victron logo" class="victron_logo">
+		<div class="inner_container">
+		    <? if ($wrong_passwd) print("Incorrect password"); ?>
+			<div class="login">
+				<h1 class="header">Venus GX login</h1>
+				<form method="post">
+					<input type="text" value="remoteconsole" name="username" id="username" autocomplete="username" style="display:none;">
+					Password: <input type="password" name="password" id="password" autocomplete="new-password" required><BR><BR>
+					<input type="submit" class="continue" value="Login">
+				</form>
+			</div>
 		</div>
 	</body>
 </html>

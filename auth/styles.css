@@ -1,9 +1,14 @@
 .outer_container {
     position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .inner_container {
     padding: 50px 20px;
+    margin: auto;
+    display: table;
+    text-align: center;
 }
 
 .victron_logo {
