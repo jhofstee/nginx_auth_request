@@ -59,8 +59,8 @@ if ($configured) {
 					</form>
 				</div>
 			<?php } else { ?>
-				<h1 class="header">Authentication on LAN is not yet configured!</h1>
-				Explanation goes here...
+				<h1 class="header">A security profile has not been selected!</h1>
+				A security profile can be selected on the display from the Settings -> General menu.
 			<?php } ?>
 		</div>
 	</body>
