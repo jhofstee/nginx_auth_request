@@ -1,9 +1,22 @@
 <?php
 
+$pwd_file = "/data/conf/vncpassword.txt";
+
+// if the password file does not exists, authentication options are not yet configured
+if (!file_exists($pwd_file)) {
+	http_response_code(403); // Forbidden
+	exit();
+}
+
 // Check if authentication is required.
-$hash = trim(@file_get_contents("/data/conf/vncpassword.txt"));
-if ($hash == "") {
-	header("HTTP/1.1 200 OK");
+$hash = @file_get_contents($pwd_file);
+if ($hash === false) {
+	http_response_code(500); // Internal Server Error
+	exit();
+}
+
+if (trim($hash) == "") {
+	http_response_code(200); // OK
 	exit();
 }
 
@@ -12,16 +25,16 @@ venus_session_start();
 
 if ($_GET["user"] == "remoteconsole") {
 	if (isset($_SESSION["remoteconsole-authenticated"])) {
-		header("HTTP/1.1 200 OK");
+		http_response_code(200); // OK
 		exit();
 	} else {
 		session_destroy();
-		header("HTTP/1.1 401 Authentication required");
+		http_response_code(401); // Authentication required"
 		exit();
 	}
 }
 
 session_destroy();
-header("HTTP/1.1 400 Bad Request");
+http_response_code(400); // Bad Request
 
 ?>
