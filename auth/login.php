@@ -1,6 +1,6 @@
 <?php
 
-$page = isset($_GET["page"]) ? $_GET["page"] : "/";
+$page = isset($_GET["page"]) && $_GET["page"] != "" ? $_GET["page"] : "/";
 $pwd_file = "/data/conf/vncpassword.txt";
 $wrong_passwd = false;
 $configured = file_exists($pwd_file);
