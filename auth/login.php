@@ -44,9 +44,9 @@ if ($configured) {
 		<title>Login</title>
 		<link rel="stylesheet" href="styles.css">
 	</head>
-	<div class="outer_container">
+	<div class="outer_container auth">
 		<img src="victron_logo.png" alt="Victron logo" class="victron_logo">
-		<div class="inner_container">
+		<div class="inner_container auth">
 			<?php if ($configured) { ?>
 				<div class="login">
 					<h1 class="header">Venus GX login</h1>

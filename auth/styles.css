@@ -1,14 +1,22 @@
-.outer_container {
+.outer_container.auth {
     position: relative;
     display: flex;
     align-items: center;
 }
 
-.inner_container {
+.inner_container.auth {
     padding: 50px 20px;
     margin: auto;
     display: table;
     text-align: center;
+}
+
+.outer_container.explanation {
+    position: relative;
+}
+
+.inner_container.explanation {
+    padding: 50px 20px;
 }
 
 .victron_logo {
