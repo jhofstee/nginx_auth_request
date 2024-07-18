@@ -46,7 +46,7 @@
 
 @font-face {
     font-family: 'Museo Sans';
-    src: url('MuseoSans_500.woff2') format('otf'),
+    src: url('MuseoSans_500.otf') format('opentype'),
 }
 
 body {
