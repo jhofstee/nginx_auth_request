@@ -50,6 +50,8 @@
 }
 
 body {
+    background-color: #000;
+    color: #fff;
     font-family: 'Museo Sans', sans-serif; /* Use Museo Sans as the primary font */
     line-height: 22px;
 }
